@@ -1,6 +1,6 @@
 export default interface IController{
-    get() : void,
-    post() : void,
-    put() : void,
-    delete() : void,
+    get() : Promise<void>,
+    post() : Promise<void>,
+    put() : Promise<void>,
+    delete() : Promise<void>,
 }
