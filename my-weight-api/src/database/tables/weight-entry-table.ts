@@ -1,18 +1,47 @@
 import IWeightEntry from "../types/i-weight-entry";
 import SqlTable from "../util/classes/sql-table";
+import IMySqlInfo from "../util/interfaces/i-mysql-info";
 
 export default class WeightEntryTable extends SqlTable<IWeightEntry> {
-    create(item: IWeightEntry): Promise<IWeightEntry> {
-        throw new Error("Method not implemented.");
+    constructor(sqlInfo: IMySqlInfo) {
+        super(
+            sqlInfo,
+            "WeightEntry", 
+            {
+                ID: 'id',
+                USER_ID: 'user_id',
+                WEIGHT: 'weight',
+                TIMESTAMP: 'timestamp',
+                NOTE: 'note'
+            }
+        );
     }
-    read(item?: IWeightEntry | undefined): Promise<IWeightEntry | IWeightEntry[]> {
-        throw new Error("Method not implemented.");
+    async create(item: IWeightEntry): Promise<IWeightEntry> {
+        const weightEntry = item;
+
+        try {
+            const sqlStatement = this.sqlStmtProcessor.create(
+                object => {
+                   return `${object.ID}`;
+                },
+                () => {
+                    return ``
+                }
+            );
+        } catch (err) {
+            throw err;
+        }
+
+        return weightEntry;
     }
-    update(item: IWeightEntry): Promise<boolean> {
-        throw new Error("Method not implemented.");
+    async read(item?: IWeightEntry | undefined): Promise<IWeightEntry | IWeightEntry[]> {
+        
     }
-    delete(item: IWeightEntry): Promise<boolean> {
-        throw new Error("Method not implemented.");
+    async update(item: IWeightEntry): Promise<boolean> {
+        
+    }
+    async delete(item: IWeightEntry): Promise<boolean> {
+        
     }
     
 }

@@ -6,7 +6,7 @@ import mysql from 'mysql2/promise';
 export default abstract class SqlTable<T> implements ISqlTable<T> {
     protected pool: Pool;
     protected sqlStmtProcessor : SqlStatementProcessor;
-    constructor (sqlInfo: IMySqlInfo, tableName: string, tableColumns: Object) {
+    constructor (sqlInfo: IMySqlInfo, tableName: string, tableColumns: object) {
         this.pool = mysql.createPool(sqlInfo);
         this.sqlStmtProcessor = new SqlStatementProcessor(tableName, tableColumns);
     }
