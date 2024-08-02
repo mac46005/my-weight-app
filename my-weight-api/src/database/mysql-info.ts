@@ -1,4 +1,4 @@
-import IMySqlInfo from "./i-mysql-info";
+import IMySqlInfo from "./util/interfaces/i-mysql-info";
 import dotenv from 'dotenv';
 
 dotenv.config();
