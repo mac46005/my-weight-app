@@ -5,6 +5,9 @@ import IMySqlInfo from "src/database/i-mysql-info";
 
 
 export default class WeightTableController extends TableController {
+    cols = {
+        
+    }
     constructor(mysqlInfo: IMySqlInfo) {
         super(mysqlInfo);
     }
