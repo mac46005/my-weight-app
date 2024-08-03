@@ -32,6 +32,7 @@ export default class WeightEntryTable extends SqlTable<IWeightEntry> {
                 () => `${item.userId}, ${item.weight}, ${item.notes}`
             );
 
+            console.log(weightEntry);
             
         } catch (err) {
             throw err;

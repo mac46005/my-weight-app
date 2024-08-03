@@ -4,7 +4,9 @@ import ISqlTable from "../interfaces/i-sql-table.js";
 import mysql from 'mysql2/promise';
 import ITableColumns from "../interfaces/i-table-columns.js";
 import SqlStatementProcessor from "./sqlstatement-processor.js";
+import { injectable } from "inversify";
 
+@injectable()
 export default abstract class SqlTable<T> implements ISqlTable<T> {
     protected pool: Pool;
     protected sqlStmtProcessor : SqlStatementProcessor;

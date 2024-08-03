@@ -9,3 +9,5 @@ const mysqlInfo : IMySqlInfo = {
     host : process.env.DB_HOST,
     database: process.env.DB_NAME
 }
+
+export default mysqlInfo;

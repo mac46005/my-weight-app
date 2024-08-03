@@ -1,17 +1,23 @@
 import { Request, Response, NextFunction } from "express";
 import TableController from "./table-controller";
 import { controller, httpGet } from "inversify-express-utils";
+import { servicesNames } from "../../services-names";
+import { inject, injectable } from "inversify";
+import ISqlTable from "../../database/util/interfaces/i-sql-table";
+import IWeightEntry from "../../database/types/i-weight-entry";
 
 @controller('/weight-entry')
+// @injectable()
 export default class WeightEntryController extends TableController {
 
-    constructor() {
+    constructor(@inject(servicesNames.WeightEntryTable) private weightEntryTable : ISqlTable<IWeightEntry>) {
         super();
     }
 
     @httpGet('/get')
     async get(req: Request, res: Response, next: NextFunction): Promise<void> {
-        res.json({message: "weight-entry/get"});
+        let item = await this.weightEntryTable.create({id: 2, userId: 3, weight: 150, notes: "Congrats it works!"})
+        res.json(item);
     }
     async post(req: Request, res: Response, next: NextFunction): Promise<void> {
         throw new Error("Method not implemented.");

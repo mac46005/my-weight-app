@@ -1,6 +1,6 @@
 import { Request, Response, NextFunction } from "express";
-import IController from "../types/interfaces/i-controller";
 import { injectable } from "inversify";
+import IController from "../interfaces/i-controller";
 
 @injectable()
 export default abstract class TableController implements IController {
