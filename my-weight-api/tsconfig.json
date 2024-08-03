@@ -13,7 +13,9 @@
     "resolveJsonModule": true,          // Include modules imported with .json extension
     "sourceMap": true,                  // Generates corresponding '.map' file
     "removeComments": true,             // Do not emit comments to output
-    "noEmitOnError": true               // Disable emitting files if any type checking errors
+    "noEmitOnError": true,               // Disable emitting files if any type checking errors
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
   },
   "include": ["src/**/*.ts"],            // Include all TypeScript files in the 'src' folder
   "exclude": ["node_modules", "dist"]    // Exclude 'node_modules' and 'dist' directories

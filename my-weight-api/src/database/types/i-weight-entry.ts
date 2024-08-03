@@ -3,5 +3,5 @@ export default interface IWeightEntry {
     userId: number,
     weight: number,
     timestamp: string,
-    note: string
+    notes: string
 }

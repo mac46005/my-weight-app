@@ -8,7 +8,7 @@ import SqlStatementProcessor from "./sqlstatement-processor";
 export default abstract class SqlTable<T> implements ISqlTable<T> {
     protected pool: Pool;
     protected sqlStmtProcessor : SqlStatementProcessor;
-    constructor (sqlInfo: IMySqlInfo, tableName: string, tableColumns: ITableColumns) {
+    constructor (protected sqlInfo: IMySqlInfo,private  tableName: string, private tableColumns: ITableColumns) {
         this.pool = mysql.createPool(sqlInfo);
         this.sqlStmtProcessor = new SqlStatementProcessor(tableName, tableColumns);
     }

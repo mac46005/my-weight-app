@@ -1,5 +1,3 @@
-import IMySqlInfo from "src/database/i-mysql-info";
-import mysql, { Pool } from 'mysql2/promise';
 import IController from "src/types/interfaces/i-controller";
 
 export default abstract class TableController implements IController {

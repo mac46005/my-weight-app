@@ -1,25 +1,14 @@
 import { Request, Response, NextFunction } from "express";
 import IController from "src/types/interfaces/i-controller";
 import TableController from "./table-controller";
-import IMySqlInfo from "src/database/i-mysql-info";
 
 
 export default class WeightTableController extends TableController {
     cols = {
 
     }
-    constructor(mysqlInfo: IMySqlInfo,) {
-        super(
-            mysqlInfo, 
-            "WeightEntry", 
-            {
-                ID : 'id',
-                USER_ID : 'user_id',
-                WEIGHT : 'weight',
-                TIMESTAMP : 'timestamp',
-                NOTE : 'note'
-            }
-        );
+    constructor() {
+        super();
     }
 
     async get(): Promise<void> {
