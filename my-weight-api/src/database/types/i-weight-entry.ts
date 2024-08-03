@@ -1,7 +1,6 @@
-export default interface IWeightEntry {
-    id?: number,
-    userId?: number,
-    weight?: number,
-    timestamp?: string,
-    notes?: string
+import IUpdated from "./utils/i-updated";
+import IUserEntry from "./i-user-entry";
+
+export default interface IWeightEntry extends IUserEntry, IUpdated {
+    weight: number
 }

@@ -16,7 +16,7 @@ export default class WeightEntryController extends TableController {
 
     @httpGet('/get')
     async get(req: Request, res: Response, next: NextFunction): Promise<void> {
-        let item = await this.weightEntryTable.create({id: 2, userId: 3, weight: 150, notes: "Congrats it works!"})
+        let item = await this.weightEntryTable.create({id: 2, userId: 3, weight: 150, notes: "Congrats it works!"});
         res.json(item);
     }
     async post(req: Request, res: Response, next: NextFunction): Promise<void> {

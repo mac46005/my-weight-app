@@ -4,7 +4,7 @@ import SqlTable from "../util/classes/sql-table";
 import IMySqlInfo from "../util/interfaces/i-mysql-info";
 
 @injectable()
-export default class WeightEntryTable extends SqlTable<IWeightEntry> {
+export default class WeightEntriesTable extends SqlTable<IWeightEntry> {
     constructor(protected sqlInfo: IMySqlInfo) {
         super(
             sqlInfo,
@@ -29,10 +29,10 @@ export default class WeightEntryTable extends SqlTable<IWeightEntry> {
                 columns => {
                    return `${columns.USER_ID},${columns.WEIGHT}, ${columns.NOTES}`;
                 },
-                () => `${item.userId}, ${item.weight}, ${item.notes}`
+                () => `${item.userId}, ${item.weight}, "${item.notes}"`
             );
 
-            console.log(weightEntry);
+            console.log(sqlStatement);
             
         } catch (err) {
             throw err;
