@@ -4,13 +4,13 @@ import { controller, httpGet } from "inversify-express-utils";
 import { servicesNames } from "../../services-names";
 import { inject, injectable } from "inversify";
 import ISqlTable from "../../database/util/interfaces/i-sql-table";
-import IWeightEntry from "../../database/types/i-weight-entry";
+import IWeightEntries from "../../database/types/i-weight-entry";
 
 @controller('/weight-entry')
 // @injectable()
 export default class WeightEntryController extends TableController {
 
-    constructor(@inject(servicesNames.WeightEntryTable) private weightEntryTable : ISqlTable<IWeightEntry>) {
+    constructor(@inject(servicesNames.WeightEntryTable) private weightEntryTable : ISqlTable<IWeightEntries>) {
         super();
     }
 

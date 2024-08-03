@@ -1,10 +1,10 @@
 import { injectable } from "inversify";
-import IWeightEntry from "../types/i-weight-entry";
+import IWeightEntries from "../types/i-weight-entry";
 import SqlTable from "../util/classes/sql-table";
 import IMySqlInfo from "../util/interfaces/i-mysql-info";
 
 @injectable()
-export default class WeightEntriesTable extends SqlTable<IWeightEntry> {
+export default class WeightEntriesTable extends SqlTable<IWeightEntries> {
     constructor(protected sqlInfo: IMySqlInfo) {
         super(
             sqlInfo,
@@ -21,7 +21,7 @@ export default class WeightEntriesTable extends SqlTable<IWeightEntry> {
 
 
 
-    async create(item: IWeightEntry): Promise<IWeightEntry> {
+    async create(item: IWeightEntries): Promise<IWeightEntries> {
         const weightEntry = item;
 
         try {
@@ -44,13 +44,13 @@ export default class WeightEntriesTable extends SqlTable<IWeightEntry> {
 
 
 
-    async read(item?: IWeightEntry | undefined): Promise<IWeightEntry | IWeightEntry[]> {
+    async read(item?: IWeightEntries | undefined): Promise<IWeightEntries | IWeightEntries[]> {
         throw new Error("Method not impemented");
     }
-    async update(item: IWeightEntry): Promise<boolean> {
+    async update(item: IWeightEntries): Promise<boolean> {
         throw new Error("Method not impemented");
     }
-    async delete(item: IWeightEntry): Promise<boolean> {
+    async delete(item: IWeightEntries): Promise<boolean> {
         throw new Error("Method not impemented");
     }
     
