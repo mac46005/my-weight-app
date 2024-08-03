@@ -1,3 +1,4 @@
 export const servicesNames = {
-    WeightEntryTable : Symbol.for('WeightEntryTable')
+    UsersTable : Symbol.for('UsersTable'),
+    WeightEntriesTable : Symbol.for('WeightEntriesTable')
 }

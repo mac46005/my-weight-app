@@ -1,10 +1,11 @@
 import { injectable } from "inversify";
-import IWeightEntries from "../types/i-weight-entry";
+import IWeightEntry from "../types/i-weight-entry";
 import SqlTable from "../util/classes/sql-table";
 import IMySqlInfo from "../util/interfaces/i-mysql-info";
+import ISqlResult from "../util/interfaces/i-sql-result";
 
 @injectable()
-export default class WeightEntriesTable extends SqlTable<IWeightEntries> {
+export default class WeightEntriesTable extends SqlTable<IWeightEntry> {
     constructor(protected sqlInfo: IMySqlInfo) {
         super(
             sqlInfo,
@@ -14,44 +15,24 @@ export default class WeightEntriesTable extends SqlTable<IWeightEntries> {
                 USER_ID: 'user_id',
                 WEIGHT: 'weight',
                 TIMESTAMP: 'timestamp',
-                NOTES: 'note'
+                NOTES: 'note',
+                CREATED_ON: 'created_on',
+                UPDATED_ON: 'updated_on'
             }
         );
     }
-
-
-
-    async create(item: IWeightEntries): Promise<IWeightEntries> {
-        const weightEntry = item;
-
-        try {
-            const sqlStatement = this.sqlStmtProcessor.create(
-                columns => {
-                   return `${columns.USER_ID},${columns.WEIGHT}, ${columns.NOTES}`;
-                },
-                () => `${item.userId}, ${item.weight}, "${item.notes}"`
-            );
-
-            console.log(sqlStatement);
-            
-        } catch (err) {
-            throw err;
-        }
-
-        return weightEntry;
+    create(item: IWeightEntry): Promise<ISqlResult<IWeightEntry>> {
+        throw new Error("Method not implemented.");
     }
-
-
-
-
-    async read(item?: IWeightEntries | undefined): Promise<IWeightEntries | IWeightEntries[]> {
-        throw new Error("Method not impemented");
+    read(item?: IWeightEntry | undefined): Promise<ISqlResult<IWeightEntry>> {
+        throw new Error("Method not implemented.");
     }
-    async update(item: IWeightEntries): Promise<boolean> {
-        throw new Error("Method not impemented");
+    update(item: IWeightEntry): Promise<ISqlResult<IWeightEntry>> {
+        throw new Error("Method not implemented.");
     }
-    async delete(item: IWeightEntries): Promise<boolean> {
-        throw new Error("Method not impemented");
+    delete(item: IWeightEntry): Promise<ISqlResult<IWeightEntry>> {
+        throw new Error("Method not implemented.");
     }
+   
     
 }
