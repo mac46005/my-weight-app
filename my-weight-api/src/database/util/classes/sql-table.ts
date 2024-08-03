@@ -16,10 +16,10 @@ export default abstract class SqlTable<T> implements ISqlTable<T> {
         this.pool = mysql.createPool(sqlInfo);
         this.sqlStmtProcessor = new SqlStatementProcessor(tableName, tableColumns);
     }
-    abstract create(item: T): Promise<T>;
-    abstract read(item?: T | undefined): Promise<T | T[]>;
-    abstract update(item: T): Promise<boolean>;
-    abstract delete(item: T): Promise<boolean>;
+    abstract create(item: T): Promise<ISqlResult<T>>;
+    abstract read(item?: T | undefined): Promise<ISqlResult<T>>;
+    abstract update(item: T): Promise<ISqlResult<T>>;
+    abstract delete(item: T): Promise<ISqlResult<T>>;
 
     protected processRowDataPackets<T>(rowDatapackets: RowDataPacket[]) : T[] {
         let tItems: T[] = [];
