@@ -21,8 +21,8 @@ export default class WeightEntryTable extends SqlTable<IWeightEntry> {
 
         try {
             const sqlStatement = this.sqlStmtProcessor.create(
-                object => {
-                   return `${object.ID}`;
+                columns => {
+                   return `${columns.ID}`;
                 },
                 () => {
                     return ``
