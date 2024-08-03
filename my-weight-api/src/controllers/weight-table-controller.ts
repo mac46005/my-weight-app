@@ -1,22 +1,26 @@
 import { Request, Response, NextFunction } from "express";
-import IController from "src/types/interfaces/i-controller";
 import TableController from "./table-controller";
+import { controller, httpGet } from "inversify-express-utils";
 
+@controller('/weight-entry')
+export default class WeightEntryController extends TableController {
 
-export default class WeightTableController extends TableController {
-    cols = {
-
-    }
     constructor() {
         super();
     }
 
-    async get(): Promise<void> {
+    @httpGet('/get')
+    async get(req: Request, res: Response, next: NextFunction): Promise<void> {
+        res.json({message: "weight-entry/get"});
     }
-    async post(): Promise<void> {
+    async post(req: Request, res: Response, next: NextFunction): Promise<void> {
+        throw new Error("Method not implemented.");
     }
-    async put(): Promise<void> {
+    async put(req: Request, res: Response, next: NextFunction): Promise<void> {
+        throw new Error("Method not implemented.");
     }
-    async delete(): Promise<void> {
-    }
+    async delete(req: Request, res: Response, next: NextFunction): Promise<void> {
+        throw new Error("Method not implemented.");
+    }    
+   
 }

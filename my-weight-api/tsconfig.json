@@ -1,22 +1,38 @@
+// {
+//   "compilerOptions": {
+//     "target": "ES6",                    // Specify ECMAScript target version (default: ES3)
+//     "module": "ES6",                    // Specify module code generation: 'ES6' or 'ESNext'
+//     "moduleResolution": "node",         // Use Node.js module resolution strategy
+//     "strict": true,                     // Enable all strict type-checking options
+//     "esModuleInterop": true,            // Enables emit interoperability between CommonJS and ES Modules
+//     "forceConsistentCasingInFileNames": true, // Disallow inconsistently-cased references to the same file
+//     "skipLibCheck": true,               // Skip type checking of all declaration files
+//     "outDir": "./dist",                 // Redirect output structure to the directory
+//     "rootDir": "./src",                 // Specify the root directory of input files
+//     "baseUrl": ".",                     // Base directory to resolve non-relative module names
+//     "resolveJsonModule": true,          // Include modules imported with .json extension
+//     "sourceMap": true,                  // Generates corresponding '.map' file
+//     "removeComments": true,             // Do not emit comments to output
+//     "noEmitOnError": true,               // Disable emitting files if any type checking errors
+//     "emitDecoratorMetadata": true,
+//     "experimentalDecorators": true,
+//   },
+//   "include": ["src/**/*.ts"],            // Include all TypeScript files in the 'src' folder
+//   "exclude": ["node_modules", "dist"]    // Exclude 'node_modules' and 'dist' directories
+// }
+
 {
   "compilerOptions": {
-    "target": "ES6",                    // Specify ECMAScript target version (default: ES3)
-    "module": "ES6",                    // Specify module code generation: 'ES6' or 'ESNext'
-    "moduleResolution": "node",         // Use Node.js module resolution strategy
-    "strict": true,                     // Enable all strict type-checking options
-    "esModuleInterop": true,            // Enables emit interoperability between CommonJS and ES Modules
-    "forceConsistentCasingInFileNames": true, // Disallow inconsistently-cased references to the same file
-    "skipLibCheck": true,               // Skip type checking of all declaration files
-    "outDir": "./dist",                 // Redirect output structure to the directory
-    "rootDir": "./src",                 // Specify the root directory of input files
-    "baseUrl": ".",                     // Base directory to resolve non-relative module names
-    "resolveJsonModule": true,          // Include modules imported with .json extension
-    "sourceMap": true,                  // Generates corresponding '.map' file
-    "removeComments": true,             // Do not emit comments to output
-    "noEmitOnError": true,               // Disable emitting files if any type checking errors
-    "emitDecoratorMetadata": true,
+    "target": "ES2020",            // Target modern JavaScript
+    "module": "ESNext",            // Use ES module system
+    "moduleResolution": "node",    // Use Node.js module resolution
+    "outDir": "./dist",            // Output directory for compiled files
+    "rootDir": "./src",            // Root directory of your source files
+    "esModuleInterop": true,       // Enable compatibility for CommonJS modules
+    "strict": true,                // Enable all strict type-checking options
     "experimentalDecorators": true,
+    "emitDecoratorMetadata": true
   },
-  "include": ["src/**/*.ts"],            // Include all TypeScript files in the 'src' folder
-  "exclude": ["node_modules", "dist"]    // Exclude 'node_modules' and 'dist' directories
+  "include": ["src/**/*"],         // Include all TypeScript files in src
+  "exclude": ["node_modules"]      // Exclude node_modules
 }

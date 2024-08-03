@@ -1,4 +1,4 @@
-import ITableColumns from "src/database/types/i-table-columns";
+import ITableColumns from "../interfaces/i-table-columns.js";
 
 export default class SqlStatementProcessor {
     constructor(private tableName: string,private tableColumns: ITableColumns) {

@@ -44,13 +44,13 @@ export default class WeightEntryTable extends SqlTable<IWeightEntry> {
 
 
     async read(item?: IWeightEntry | undefined): Promise<IWeightEntry | IWeightEntry[]> {
-        
+        throw new Error("Method not impemented");
     }
     async update(item: IWeightEntry): Promise<boolean> {
-        
+        throw new Error("Method not impemented");
     }
     async delete(item: IWeightEntry): Promise<boolean> {
-        
+        throw new Error("Method not impemented");
     }
     
 }

@@ -1,19 +1,12 @@
-import IController from "src/types/interfaces/i-controller";
+import { Request, Response, NextFunction } from "express";
+import IController from "../types/interfaces/i-controller";
+import { injectable } from "inversify";
 
+@injectable()
 export default abstract class TableController implements IController {
-    
-    async get(): Promise<void> {
-        throw new Error("Method not implemented.");
-    }
-    async post(): Promise<void> {
-        throw new Error("Method not implemented.");
-    }
-    async put(): Promise<void> {
-        throw new Error("Method not implemented.");
-    }
-    async delete(): Promise<void> {
-        throw new Error("Method not implemented.");
-    }
-    
-    
+    abstract get(req: Request, res: Response, next: NextFunction): Promise<void>
+    abstract post(req: Request, res: Response, next: NextFunction): Promise<void>
+    abstract put(req: Request, res: Response, next: NextFunction): Promise<void>
+    abstract delete(req: Request, res: Response, next: NextFunction): Promise<void>
+
 }

@@ -1,9 +1,9 @@
 import { Pool } from "mysql2/promise";
-import IMySqlInfo from "../interfaces/i-mysql-info";
-import ISqlTable from "../interfaces/i-sql-table";
+import IMySqlInfo from "../interfaces/i-mysql-info.js";
+import ISqlTable from "../interfaces/i-sql-table.js";
 import mysql from 'mysql2/promise';
-import ITableColumns from "src/database/types/i-table-columns";
-import SqlStatementProcessor from "./sqlstatement-processor";
+import ITableColumns from "../interfaces/i-table-columns.js";
+import SqlStatementProcessor from "./sqlstatement-processor.js";
 
 export default abstract class SqlTable<T> implements ISqlTable<T> {
     protected pool: Pool;

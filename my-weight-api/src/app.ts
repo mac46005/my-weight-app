@@ -1,8 +1,9 @@
+import 'reflect-metadata';
 import express from 'express';
 import dotenv from 'dotenv';
 import { Container } from 'inversify';
 import { InversifyExpressServer } from 'inversify-express-utils';
-import container from './inversify.config';
+import container from './inversify.config.js';
 dotenv.config();
 
 let server = new InversifyExpressServer(container);
