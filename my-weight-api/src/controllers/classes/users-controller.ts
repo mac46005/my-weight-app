@@ -15,7 +15,7 @@ export default class UsersController extends TableController {
         super()
     }
 
-    @httpGet('get/:id?')
+    @httpGet('/get/:id?')
     async get(req: Request, res: Response, next: NextFunction): Promise<void> {
         try {
             const idParam = req.params.id;

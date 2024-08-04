@@ -8,10 +8,11 @@ import IWeightEntry from './database/types/i-weight-entry';
 import IUser from './database/types/i-user';
 import UsersTable from './database/tables/users-table';
 import { ErrorHandlerMiddleware } from './middleware/error-handler-middleware';
+import UsersController from './controllers/classes/users-controller';
 const container = new Container();
 // Register controllers
 container.bind<Controller>(WeightEntriesTable).toSelf();
-
+container.bind<Controller>(UsersController).toSelf();
 // Register Services
 container.bind<ISqlTable<IUser>>(servicesNames.UsersTable).toConstantValue(new UsersTable(mysqlInfo));
 

@@ -88,9 +88,9 @@ export default class UsersTable extends SqlTable<IUser> {
                 columns => `WHERE ${columns.ID} = ${item.id}`
             );
 
+            console.log(sqlStatement);
+
             sqlResult = await this.getResult(SqlFunctions.UPDATE, sqlStatement);
-
-
 
         } catch (err) {
             throw err;
