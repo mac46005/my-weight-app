@@ -35,7 +35,7 @@ export default abstract class SqlTable<T> implements ISqlTable<T> {
 
 
     
-    protected async getResult(sqlFunctions: SqlFunctions, sqlStatement : string): Promise<ISqlResult<T>> {
+    protected async getSqlResult(sqlFunctions: SqlFunctions, sqlStatement : string): Promise<ISqlResult<T>> {
         let sqlResult : ISqlResult<T> ={};
 
 

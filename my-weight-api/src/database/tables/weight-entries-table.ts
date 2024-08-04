@@ -22,6 +22,9 @@ export default class WeightEntriesTable extends SqlTable<IWeightEntry> {
             }
         );
     }
+
+
+
     async create(item: IWeightEntry): Promise<ISqlResult<IWeightEntry>> {
         let sqlResult : ISqlResult<IWeightEntry>;
         try {
@@ -32,7 +35,7 @@ export default class WeightEntriesTable extends SqlTable<IWeightEntry> {
 
             console.log(sqlStatement);
 
-            sqlResult = await this.getResult(SqlFunctions.CREATE, sqlStatement);
+            sqlResult = await this.getSqlResult(SqlFunctions.CREATE, sqlStatement);
 
         } catch (err) {
             throw err;
@@ -40,9 +43,25 @@ export default class WeightEntriesTable extends SqlTable<IWeightEntry> {
 
         return sqlResult;
     }
+
+
     async read(item?: IUserEntry | undefined): Promise<ISqlResult<IWeightEntry>> {
         let sqlResult : ISqlResult<IWeightEntry>;
         try {
+            const sqlStatement = this.sqlStmtProcessor.read(
+                columns => `${columns.ID}, ${columns.USER_ID}, ${columns.WEIGHT}, ${columns.NOTE}, ${columns.CREATED_ON}, ${columns.UPDATE_ON}`,
+                columns => {
+                    if(item) {
+                        return `WHERE ${columns.ID} = ${item.id} AND ${columns.USER_ID} = ${item.user_id}`
+                    } else {
+                        return "";
+                    }
+                }
+            );
+
+            console.log(sqlStatement);
+
+            sqlResult = await this.getSqlResult(SqlFunctions.READ, sqlStatement);
 
         } catch (err) {
             throw err;
@@ -50,9 +69,20 @@ export default class WeightEntriesTable extends SqlTable<IWeightEntry> {
 
         return sqlResult;
     }
+
+
+
     async update(item: IWeightEntry): Promise<ISqlResult<IWeightEntry>> {
         let sqlResult : ISqlResult<IWeightEntry>;
         try {
+            const sqlStatement = this.sqlStmtProcessor.update(
+                columns => `${columns.WEIGHT} = ${item.weight}, ${columns.UPDATE_ON} = ${new Date()}`,
+                columns => `WHERE ${columns.ID} = ${item.id} AND ${columns.USER_ID} = ${item.user_id}`
+            );
+            
+            console.log(sqlStatement);
+
+            sqlResult = await this.getSqlResult(SqlFunctions.UPDATE, sqlStatement);
 
         } catch (err) {
             throw err;

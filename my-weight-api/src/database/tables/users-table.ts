@@ -44,7 +44,7 @@ export default class UsersTable extends SqlTable<IUser> {
 
             console.log(sqlStatement);
 
-            sqlResult = await this.getResult(SqlFunctions.CREATE, sqlStatement);
+            sqlResult = await this.getSqlResult(SqlFunctions.CREATE, sqlStatement);
         } catch (err) {
             throw err;
         }
@@ -68,7 +68,7 @@ export default class UsersTable extends SqlTable<IUser> {
 
             console.log(sqlStatement);
 
-            sqlResult = await this.getResult(SqlFunctions.READ , sqlStatement);
+            sqlResult = await this.getSqlResult(SqlFunctions.READ , sqlStatement);
 
         } catch (err) {
             throw err;
@@ -90,7 +90,7 @@ export default class UsersTable extends SqlTable<IUser> {
 
             console.log(sqlStatement);
 
-            sqlResult = await this.getResult(SqlFunctions.UPDATE, sqlStatement);
+            sqlResult = await this.getSqlResult(SqlFunctions.UPDATE, sqlStatement);
 
         } catch (err) {
             throw err;
@@ -113,7 +113,7 @@ export default class UsersTable extends SqlTable<IUser> {
 
             console.log(sqlStatement);
 
-            sqlResult = await this.getResult(SqlFunctions.DELETE, sqlStatement);
+            sqlResult = await this.getSqlResult(SqlFunctions.DELETE, sqlStatement);
         } catch (err) {
             throw err;
         }
