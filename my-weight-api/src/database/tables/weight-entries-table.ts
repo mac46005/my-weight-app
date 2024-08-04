@@ -79,7 +79,7 @@ export default class WeightEntriesTable extends SqlTable<IWeightEntry> {
                 columns => `${columns.WEIGHT} = ${item.weight}, ${columns.UPDATE_ON} = ${new Date()}`,
                 columns => `WHERE ${columns.ID} = ${item.id} AND ${columns.USER_ID} = ${item.user_id}`
             );
-            
+
             console.log(sqlStatement);
 
             sqlResult = await this.getSqlResult(SqlFunctions.UPDATE, sqlStatement);
@@ -90,9 +90,18 @@ export default class WeightEntriesTable extends SqlTable<IWeightEntry> {
 
         return sqlResult;
     }
+
+
     async delete(item: IUserEntry): Promise<ISqlResult<IWeightEntry>> {
         let sqlResult : ISqlResult<IWeightEntry>;
         try {
+            const sqlStatement = this.sqlStmtProcessor.delete(
+                columns => `WHERE ${columns.ID} = ${item.id} AND ${columns.USER_ID} = ${item.user_id}`
+            )
+
+            console.log(sqlStatement);
+
+            sqlResult = await this.getSqlResult(SqlFunctions.DELETE ,sqlStatement);
 
         } catch (err) {
             throw err;
