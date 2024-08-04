@@ -5,6 +5,7 @@ import IMySqlInfo from "../util/interfaces/i-mysql-info";
 import {FieldPacket, RowDataPacket, QueryResult} from 'mysql2/promise';
 import { SqlFunctions } from "../util/enums/i-sql-functions";
 import ISqlResult from "../util/interfaces/i-sql-result";
+import IUserEntry from "../types/utils/i-user-entry";
 
 
 
@@ -52,7 +53,7 @@ export default class UsersTable extends SqlTable<IUser> {
 
 
 
-    async read(item?: IUser | undefined): Promise<ISqlResult<IUser>> {
+    async read(item?: IUserEntry | undefined): Promise<ISqlResult<IUser>> {
         let sqlResult : ISqlResult<IUser> = {};
         try {
             let sqlStatement = this.sqlStmtProcessor.read(
@@ -83,7 +84,7 @@ export default class UsersTable extends SqlTable<IUser> {
 
         try {
             const sqlStatement = this.sqlStmtProcessor.update(
-                columns => `${columns.NAME} = ${item.name}, ${columns.BIRTHDAY} = ${item.birthday}, ${columns.HEIGHT} = ${item.height}, ${columns} = ${item.weight}, ${columns.BMI} = ${item.BMI}, ${columns.UPDATE_ON} = ${item.updated_on}`,
+                columns => `${columns.NAME} = ${item.name}, ${columns.BIRTHDAY} = ${item.birthday}, ${columns.HEIGHT} = ${item.height}, ${columns} = ${item.weight}, ${columns.BMI} = ${item.bmi}, ${columns.UPDATE_ON} = ${item.updated_on}`,
                 columns => `WHERE ${columns.ID} = ${item.id}`
             );
 
@@ -102,7 +103,7 @@ export default class UsersTable extends SqlTable<IUser> {
 
 
 
-    async delete(item: IUser): Promise<ISqlResult<IUser>> {
+    async delete(item: IUserEntry): Promise<ISqlResult<IUser>> {
         let sqlResult : ISqlResult<IUser> = {};
 
         try {

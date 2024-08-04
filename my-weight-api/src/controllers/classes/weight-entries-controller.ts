@@ -10,23 +10,41 @@ import IWeightEntry from "../../database/types/i-weight-entry";
 // @injectable()
 export default class WeightEntriesController extends TableController {
 
-    constructor(@inject(servicesNames.WeightEntriesTable) private weightEntryTable : ISqlTable<IWeightEntry>) {
+    constructor(@inject(servicesNames.WeightEntriesTable) private weightEntriesTable : ISqlTable<IWeightEntry>) {
         super();
     }
 
-    @httpGet('/get')
+    @httpGet('/get/:id?')
     async get(req: Request, res: Response, next: NextFunction): Promise<void> {
-        let item = await this.weightEntryTable.create({id: 2, userId: 3, weight: 150, notes: "Congrats it works!"});
-        res.json(item);
+        try {
+            
+        } catch (err) {
+            next(err);
+        }
     }
     async post(req: Request, res: Response, next: NextFunction): Promise<void> {
-        throw new Error("Method not implemented.");
+        try {
+
+            res.json({});
+        } catch (err) {
+            next(err);
+        }
     }
     async put(req: Request, res: Response, next: NextFunction): Promise<void> {
-        throw new Error("Method not implemented.");
+        try {
+
+            res.json({});
+        } catch (err) {
+            next(err);
+        }
     }
     async delete(req: Request, res: Response, next: NextFunction): Promise<void> {
-        throw new Error("Method not implemented.");
+        try {
+
+            res.json({});
+        } catch (err) {
+            next(err);
+        }
     }    
    
 }

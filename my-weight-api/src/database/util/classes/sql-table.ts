@@ -7,6 +7,7 @@ import SqlStatementProcessor from "./sqlstatement-processor.js";
 import { injectable } from "inversify";
 import ISqlResult from "../interfaces/i-sql-result.js";
 import { SqlFunctions } from "../enums/i-sql-functions.js";
+import IUserEntry from "../../types/utils/i-user-entry.js";
 
 @injectable()
 export default abstract class SqlTable<T> implements ISqlTable<T> {
@@ -17,9 +18,9 @@ export default abstract class SqlTable<T> implements ISqlTable<T> {
         this.sqlStmtProcessor = new SqlStatementProcessor(tableName, tableColumns);
     }
     abstract create(item: T): Promise<ISqlResult<T>>;
-    abstract read(item?: T | undefined): Promise<ISqlResult<T>>;
+    abstract read(item?: IUserEntry | undefined): Promise<ISqlResult<T>>;
     abstract update(item: T): Promise<ISqlResult<T>>;
-    abstract delete(item: T): Promise<ISqlResult<T>>;
+    abstract delete(item: IUserEntry): Promise<ISqlResult<T>>;
 
     protected processRowDataPackets<T>(rowDatapackets: RowDataPacket[]) : T[] {
         let tItems: T[] = [];
