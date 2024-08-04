@@ -1,0 +1,8 @@
+.global-header {
+    background: var(--background-blue100-color);
+    padding: 20px;
+}
+
+.logo {
+    height: 2em;
+}
