@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'main-header',
+  selector: 'header[main-header]',
   standalone: true,
   imports: [],
   templateUrl: './main-header.component.html',

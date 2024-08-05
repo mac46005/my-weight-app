@@ -1,8 +1,21 @@
-.global-header {
-    background: var(--background-blue100-color);
-    padding: 20px;
+:host {
+    background-color: var(--background-blue100-color);
+    padding: 15px;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
 }
 
 .logo {
-    height: 2em;
+    height: 100px;
+}
+
+@media screen and (max-width: 450px){
+    .container {
+        justify-content: center;
+    }
 }

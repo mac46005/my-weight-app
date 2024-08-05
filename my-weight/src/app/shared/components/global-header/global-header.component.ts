@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
+import { LinkButtonComponent } from '../link-button/link-button.component';
 
 @Component({
-  selector: 'global-header',
+  selector: 'header[global-header]',
   standalone: true,
-  imports: [],
+  imports: [LinkButtonComponent],
   templateUrl: './global-header.component.html',
   styleUrl: './global-header.component.css'
 })
