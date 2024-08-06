@@ -1,0 +1,31 @@
+:host {
+    background-color: var(--background-blue200-color);
+}
+
+.stats.flex-container {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+}
+
+.stats.flex-container > .stats-article {
+    display: flex;
+    flex-flow: column nowrap;
+    flex: .3;
+}
+
+.stats.flex-container > .stats-article > .stats-container {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-between;
+} 
+
+.stats.flex-container > .stats-article > .stats-container > .stat-item {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+}
+
+.stats-article:nth-of-type(2) {
+    margin-left: 30px;
+}

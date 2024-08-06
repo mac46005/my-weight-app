@@ -1,0 +1,21 @@
+:host {
+    background-color: var(--background-blue100-color);
+    /* height: 400px; */
+    border-radius: 0 0 3em 3em;
+    padding-bottom: 50px;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    color: var(--text-white100-color)
+}
+
+
+
+.box {
+    flex-basis: 400px;
+    height: 200px;
+    background-color: white;
+}
+
